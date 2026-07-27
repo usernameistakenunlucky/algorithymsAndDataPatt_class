@@ -1,6 +1,9 @@
 #pragma once
 #include <cstddef>
 #include <utility>
+
+#include "ContainerIterator.h"
+
 template<typename T, std::size_t N>
 class Array
 {
@@ -115,6 +118,14 @@ public:
 	{
 		return mValues[index];
 	}
+
+	//iterator deffinitions
+	using Iterator = ContainerIterator<T>;
+	using Const_Iterator = ContainerIterator<const T>;
+	Iterator Begin() { return Iterator(mValues); }
+	Iterator End() { return Iterator(mValues + N); }
+	Iterator Begin() const { return Iterator(mValues); }
+	Iterator End() const { return Iterator(mValues + N); }
 
 private:
 	// T is the type we declare

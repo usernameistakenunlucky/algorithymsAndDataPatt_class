@@ -3,6 +3,8 @@
 #include <utility>
 #include <cassert>
 
+#include "ContainerIterator.h"
+
 template<typename T>
 class Vector
 {
@@ -189,9 +191,13 @@ public :
 		return mValues[index];
 	}
 
-
-
-
+	//iterator deffinitions
+	using Iterator = ContainerIterator<T>;
+	using Const_Iterator = ContainerIterator<const T>;
+	Iterator Begin() { return Iterator(mValues); }
+	Iterator End() { return Iterator(mValues + mSize); }
+	Iterator Begin() const { return Iterator(mValues); }
+	Iterator End() const { return Iterator(mValues + mSize); }
 
 private:
 	T* mValues = nullptr;

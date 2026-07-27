@@ -1,7 +1,7 @@
 #include <iostream>
 #include <random>
-#include "Array.h"
-#include "Vector.h"
+#include <Array.h>
+#include <Vector.h>
 
 // Build an array of 10 ints
 // initialize them to 0
