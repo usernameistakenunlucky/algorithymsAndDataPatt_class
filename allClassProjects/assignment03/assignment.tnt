@@ -1,0 +1,36 @@
+Using your custom KDTree:
+
+1) Create an enum for PickupType
+	a. Invalid, Health, WeaponAmmo, Coins, Upgrade, SpecialItem
+
+2) Create a class PickUp
+	a. PickupType mType;
+	b. std::string mName;
+		i. Stores the name of the pickup
+	c. Vector3 mPosition;
+		i. Location where the item is in the world
+	d. Pickup(PickupType pickupType, const Vector3& pos)
+		i. Constructor that stores the pickupType
+		ii. Use the pickupType to set the name
+
+3) Create a class PickupManager
+	a. Contains a Vector of Pickups
+	b. Contains a KDTree to reuse in searches
+	c. void AddItem(PickupType pickupType, const Vector3& pos)
+		i. Adds an item to the pickups and stores the position
+		ii. Stores the pickup in the KDTree<float, 3>
+	d. const Pickup* GetClosestPickup(const Vector3& pos)
+		i. Do a search to find the closest item to the position
+	e. void ObtainPickupsInRange(const Vector3& pos, float range, PickupType pickupType)
+		i. Do a search to find all items within a given range
+		ii. Use the pickupType to find a specific item, if Invalid, get all pickups in range
+
+4) Main flow
+	a. Create 100 random pickups in various positions
+	b. Create a Vector3 for “player”
+	c. Player has an “attract range” where pickups within 10.0f are picked up
+		i. Give a player a set position, print all items picked up in range and their locations
+	d. Player is low on health, find all the health pickups withing 50.0f to identify
+		i. Print the health pickups names as well as the location
+	e. Player has just started the game and is looking for a pickup, find the closest pickup
+		i. Print the pickup name as well as location from the player

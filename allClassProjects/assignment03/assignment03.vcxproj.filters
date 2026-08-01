@@ -15,22 +15,21 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Array.h">
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assignment.tnt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Pickup.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Vector.h">
+    <ClInclude Include="Vector3.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ContainerIterator.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="PriorityQueue.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="KDTree.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Vector2.h">
+    <ClInclude Include="PickupManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

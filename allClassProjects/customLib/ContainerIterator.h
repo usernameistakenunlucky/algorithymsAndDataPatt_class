@@ -13,7 +13,7 @@ class ContainerIterator
 {
 public:
 	// defines ids/ names for stl use (std::sort, find, etc)
-	using iterator_cotegory = std::random_access_iterator_tag;
+	using iterator_category = std::random_access_iterator_tag;
 	using value_type = T;
 	using difference_type = std::ptrdiff_t;
 	using pointer = T*;
@@ -24,8 +24,8 @@ public:
 	{
 	}
 
-	T& operator*() { return *mPtr; }
-	T* operator->() { return mPtr; }
+	T& operator*() const { return *mPtr; }
+	T* operator->() const { return mPtr; }
 
 	ContainerIterator operator++() { ++mPtr; return *this; } // ++itr
 	ContainerIterator operator--() { --mPtr; return *this; } // --itr
