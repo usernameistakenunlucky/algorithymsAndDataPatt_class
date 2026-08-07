@@ -199,6 +199,18 @@ public :
 	Iterator Begin() const { return Iterator(mValues); }
 	Iterator End() const { return Iterator(mValues + mSize); }
 
+	// TODO: hide this from others
+	void PopFront()
+	{
+		// swap the front index all the way to the back and pop it
+		mValues[0].~T();
+		for (std::size_t i = 0; i < mSize; i++)
+		{
+			mValues[i] = mValues[i + 1];
+		}
+		PopBack();
+	}
+
 private:
 	T* mValues = nullptr;
 	std::size_t mCapacity = 0; // the maximum size of the container
