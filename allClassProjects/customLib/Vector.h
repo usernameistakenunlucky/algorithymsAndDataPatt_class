@@ -195,9 +195,13 @@ public :
 	using Iterator = ContainerIterator<T>;
 	using Const_Iterator = ContainerIterator<const T>;
 	Iterator Begin() { return Iterator(mValues); }
+	Iterator begin() { return Iterator(mValues); }
 	Iterator End() { return Iterator(mValues + mSize); }
+	Iterator end() { return Iterator(mValues + mSize); }
 	Iterator Begin() const { return Iterator(mValues); }
+	Iterator begin() const { return Iterator(mValues); }
 	Iterator End() const { return Iterator(mValues + mSize); }
+	Iterator end() const { return Iterator(mValues + mSize); }
 
 	// TODO: hide this from others
 	void PopFront()
