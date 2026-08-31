@@ -103,6 +103,7 @@ private:
 		{
 			return node->height;
 		}
+		return -1;
 	}
 
 	int GetBalanceFactor(Node* node)
