@@ -132,7 +132,7 @@ public :
 		{
 			std::size_t newCapacity = std::max(size, mCapacity * 2);
 			Reserve(newCapacity);
-			for (std::size_t i = 0; i < mSize; i++)
+			for (std::size_t i = 0; i < size; i++)
 			{
 				mValues[i] = initialValue;
 			}
