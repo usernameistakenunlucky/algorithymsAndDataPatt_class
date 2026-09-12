@@ -53,7 +53,7 @@ private:
 	void HeapifyUp(int index)
 	{
 		int parent = (index - 1) / 2;
-		while (index > 0 && mCompare(mValues[index], mValues[parent]))
+		while (index > 0 && mCompare(mValues[parent], mValues[index]))
 		{
 			Swap(mValues[index], mValues[parent]);
 			index = parent;
@@ -66,11 +66,11 @@ private:
 		int largest = index;
 		int leftChild = 2 * index + 1;
 		int rightChild = 2 * index + 2;
-		if (leftChild < Size() && mCompare(mValues[leftChild], mValues[largest]))
+		if (leftChild < Size() && mCompare(mValues[largest], mValues[leftChild]))
 		{
 			largest = leftChild;
 		}
-		if (rightChild < Size() && mCompare(mValues[rightChild], mValues[largest]))
+		if (rightChild < Size() && mCompare(mValues[largest], mValues[rightChild]))
 		{
 			largest = rightChild;
 		}
